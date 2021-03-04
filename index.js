@@ -61,7 +61,11 @@ if (actions[index] == "login") {
     rp(options).then(function(body) {
       var tmtc = JSON.parse(body)
       //process.stdout.write('\033c')
-      console.log(tmtc.data)
+      var posts = tmtc.data
+
+      for (var i = 0; i < posts.length; i++) {
+        console.log(posts[i])
+      }
     });
 
 
