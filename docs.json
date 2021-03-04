@@ -1,0 +1,275 @@
+{
+  "docs": {
+    "controllers": [
+      {
+        "name": "auth",
+        "endpoints": [
+          {
+            "name": "login",
+            "methods": [
+              {
+                "description": "Login to your account.",
+                "method": "POST",
+                "body": {
+                  "username": {
+                    "description": "The name of the account you are trying to log in to.",
+                    "required": true,
+                    "regex": "/^.{4,}$/"
+                  },
+                  "password": {
+                    "description": "The password of the account you are trying to log in to.",
+                    "required": true,
+                    "regex": null
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "name": "signup",
+            "methods": [
+              {
+                "description": "Create an account.",
+                "method": "POST",
+                "body": {
+                  "username": {
+                    "description": "The name that you want your account to have.",
+                    "required": true,
+                    "regex": "/^.{4,}$/"
+                  },
+                  "password": {
+                    "description": "The password taht you want your account to have.",
+                    "required": true,
+                    "regex": null
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "name": "logout",
+            "methods": [
+              {
+                "description": "Logout of your account.",
+                "method": "GET",
+                "query": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "comments",
+        "endpoints": [
+          {
+            "name": "comment",
+            "methods": [
+              {
+                "description": "Get the comments on a post.",
+                "method": "GET",
+                "query": {
+                  "postId": {
+                    "description": "Mongo ObjectId for the post that you want to fetch the comments from.",
+                    "required": true,
+                    "regex": "/^(?=[a-f\\d]{24}$)(\\d+[a-f]|[a-f]+\\d)/i"
+                  },
+                  "commentId": {
+                    "description": "Mongo ObjectId for the comment that you want to start the fetch from.",
+                    "required": false,
+                    "regex": "/^(?=[a-f\\d]{24}$)(\\d+[a-f]|[a-f]+\\d)/i"
+                  }
+                }
+              },
+              {
+                "description": "Make a comment on a post.",
+                "method": "POST",
+                "body": {
+                  "postId": {
+                    "description": "Mongo ObjectId for the post you want to add the comment to.",
+                    "required": true,
+                    "regex": "/^(?=[a-f\\d]{24}$)(\\d+[a-f]|[a-f]+\\d)/i"
+                  },
+                  "content": {
+                    "description": "The content of the comment.",
+                    "required": true,
+                    "regex": null
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "connections",
+        "endpoints": [
+          {
+            "name": "",
+            "methods": [
+              {
+                "description": "Check all of your connections.",
+                "method": "GET",
+                "query": null
+              },
+              {
+                "description": "Delete a connection",
+                "method": "DELETE",
+                "body": {
+                  "username": {
+                    "description": "The username of the person you want to dis-connect from.",
+                    "required": true,
+                    "regex": null
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "likes",
+        "endpoints": [
+          {
+            "name": "like",
+            "methods": [
+              {
+                "description": "Get all the likes on a post.",
+                "method": "GET",
+                "query": {
+                  "postId": {
+                    "description": "Mongo ObjectId of the post you want to fetch the likes from.",
+                    "required": true,
+                    "regex": "/^(?=[a-f\\d]{24}$)(\\d+[a-f]|[a-f]+\\d)/i"
+                  }
+                }
+              },
+              {
+                "description": "Like a post.",
+                "method": "POST",
+                "body": {
+                  "postId": {
+                    "description": "Mongo ObjectId of the post you want to like.",
+                    "required": true,
+                    "regex": "/^(?=[a-f\\d]{24}$)(\\d+[a-f]|[a-f]+\\d)/i"
+                  }
+                }
+              },
+              {
+                "description": "Delete a post.",
+                "method": "DELETE",
+                "body": {
+                  "postId": {
+                    "description": "Post you want to unlike.",
+                    "required": true,
+                    "regex": "/^(?=[a-f\\d]{24}$)(\\d+[a-f]|[a-f]+\\d)/i"
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "posts",
+        "endpoints": [
+          {
+            "name": "post",
+            "methods": [
+              {
+                "description": "Get 5 latest posts before the given postId.",
+                "method": "GET",
+                "query": {
+                  "id": {
+                    "description": "Mongo ObjectId of the post you want to start loading from (defaults to latest post).",
+                    "required": false,
+                    "regex": "/^(?=[a-f\\d]{24}$)(\\d+[a-f]|[a-f]+\\d)/i"
+                  }
+                }
+              },
+              {
+                "description": "Make a post.",
+                "method": "POST",
+                "body": {
+                  "content": {
+                    "description": "The content of your message.",
+                    "required": true,
+                    "regex": null
+                  }
+                }
+              },
+              {
+                "description": "Delete a post.",
+                "method": "DELETE",
+                "body": {
+                  "id": {
+                    "description": "Mongo ObjectId of the post you want to delete.",
+                    "required": true,
+                    "regex": "/^(?=[a-f\\d]{24}$)(\\d+[a-f]|[a-f]+\\d)/i"
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "requests",
+        "endpoints": [
+          {
+            "name": "",
+            "methods": [
+              {
+                "description": "Get all outgoing and incoming connection requests.",
+                "method": "GET",
+                "query": null
+              },
+              {
+                "description": "Delete an incoming or outgoing request.",
+                "method": "DELETE",
+                "body": {
+                  "username": {
+                    "description": "The username of the person who's request you are trying to delete.",
+                    "required": true,
+                    "regex": null
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "name": "send",
+            "methods": [
+              {
+                "description": "Send a connection request.",
+                "method": "POST",
+                "body": {
+                  "username": {
+                    "description": "The username of the person you want to send a connection request to.",
+                    "required": true,
+                    "regex": null
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "name": "accept",
+            "methods": [
+              {
+                "description": "Accept an incoming connection request.",
+                "method": "POST",
+                "body": {
+                  "username": {
+                    "description": "The username of the person who's request you are accepting.",
+                    "required": true,
+                    "regex": null
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

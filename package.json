@@ -1,0 +1,33 @@
+{
+  "name": "devhub-client",
+  "version": "1.0.0",
+  "description": "a cli client for devhub",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saravenpi/devhub-client.git"
+  },
+  "keywords": [
+    "devhub",
+    "client",
+    "saravenpi",
+    "social",
+    "dev"
+  ],
+  "author": "saravenpi@protonmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/saravenpi/devhub-client/issues"
+  },
+  "homepage": "https://github.com/saravenpi/devhub-client#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "colors": "^1.4.0",
+    "needle": "^2.6.0",
+    "readline-sync": "^1.4.10"
+  }
+}
