@@ -6,6 +6,10 @@
 
 I'm not the author of DevHub (its creators are [driaug](https://github.com/driaug) and [boon-cpu](https://github.com/boon-cpu)). Let me tell you a story: I was scrolling on Reddit, and saw [this post](https://www.reddit.com/r/ProgrammerHumor/comments/lxtine/devhub_the_backend_only_social_media/), the concept is a "backend only" social media, designed for the programmers.
 So I wanted to make a client for the app, and for this project, it will rest in the command line interface!
+## How it looks like:
+
+All the app is running in your command line interface, here is a screenshot of the interface:
+![screenshot](https://i.imgur.com/eqHjP5k.png)
 
 ## How to use it:
 
