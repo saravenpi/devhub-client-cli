@@ -1,5 +1,5 @@
 {
-  "name": "devhub-client",
+  "name": "devhub-client-cli",
   "version": "1.0.0",
   "description": "a cli client for devhub",
   "main": "index.js",
