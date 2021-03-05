@@ -28,6 +28,7 @@
     "axios": "^0.21.1",
     "colors": "^1.4.0",
     "readline-sync": "^1.4.10",
+    "request": "^2.88.2",
     "request-promise": "^4.2.6"
   }
 }
