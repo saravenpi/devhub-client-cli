@@ -24,11 +24,11 @@ if (actions[index] == "signup") {
 
   axios
     .post("https://devhub-driaug.herokuapp.com/api/auth/signup", data)
-    .then(function (res) {
+    .then(function(res) {
       console.log(`statusCode: ${res.statusCode}`);
       console.log(res.data);
     })
-    .catch(function (error) {
+    .catch(function(error) {
       console.error(error);
     });
 }
@@ -41,11 +41,14 @@ if (actions[index] == "login") {
   if (password.trim() == "")
     return console.log(colors.red("PLEASE ENTER A PASSWORD"));
 
-  const data = { username, password };
+  const data = {
+    username,
+    password
+  };
 
   axios
     .post("https://devhub-driaug.herokuapp.com/api/auth/login", data)
-    .then(function (res) {
+    .then(function(res) {
       process.stdout.write("\033c");
       console.log(
         "You're logged in as: ",
@@ -63,7 +66,7 @@ if (actions[index] == "login") {
         uri: "https://devhub-driaug.herokuapp.com/api/posts/post",
       };
 
-      rp(options).then(function (body) {
+      rp(options).then(function(body) {
         const tmtc = JSON.parse(body);
         const posts = tmtc.data;
 
@@ -72,7 +75,7 @@ if (actions[index] == "login") {
         }
       });
     })
-    .catch(function (error) {
+    .catch(function(error) {
       console.error(error);
     });
 }

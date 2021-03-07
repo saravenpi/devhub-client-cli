@@ -269,6 +269,21 @@
             ]
           }
         ]
+      },
+      {
+        "name": "stats",
+        "endpoints": [
+          {
+            "name": "",
+            "methods": [
+              {
+                "description": "Get the stats of devhub.",
+                "method": "GET",
+                "query": null
+              }
+            ]
+          }
+        ]
       }
     ]
   }
